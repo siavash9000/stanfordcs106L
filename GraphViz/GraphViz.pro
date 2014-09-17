@@ -9,6 +9,12 @@ HEADERS += *.h
 SOURCES += *.cpp
 
 QMAKE_CXXFLAGS += -std=c++11
+LIBS += -L/usr/lib/x86_64-linux-gnu -lboost_system  -lboost_filesystem
+
+install_it.path = %{buildDir}/resources/
+install_it.files += %{sourceDir}/resources/*
+
+INSTALLS += install_it
 
 # Copies the given files to the destination directory
 defineTest(copyToDestdir) {
