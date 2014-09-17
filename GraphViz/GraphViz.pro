@@ -5,8 +5,7 @@ TEMPLATE = app
 CONFIG += no_include_pwd
 CONFIG -= app_bundle
 
-HEADERS += *.h \
-    ForceDirectedLayouter.h
+HEADERS += *.h
 SOURCES += *.cpp
 
 QMAKE_CXXFLAGS += -std=c++11

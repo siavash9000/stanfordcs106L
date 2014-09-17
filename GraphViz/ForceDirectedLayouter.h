@@ -1,14 +1,18 @@
 #ifndef LAYOUTPROCEDURE_H
 #define LAYOUTPROCEDURE_H
+
+#include "SimpleGraph.h"
+
 using namespace std;
 class ForceDirectedLayouter {
 public:
-    ForceDirectedLayouter(SimpleGraph& graph);
+    ForceDirectedLayouter(SimpleGraph& inputGraph):graph(inputGraph){}
     SimpleGraph& doLayoutProcedure(int runtimeSeconds);
 private:
-    SimpleGraph& doIteration(int runtimeSeconds);
-    SimpleGraph& applyRepulsiveNodeForces();
-    SimpleGraph& applyAttractiveEdgeForces();
+    SimpleGraph& graph;
+    void doIteration();
+    void applyRepulsiveNodeForces();
+    void applyAttractiveEdgeForces();
 };
 
 #endif // LAYOUTPROCEDURE_H

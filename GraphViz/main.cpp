@@ -3,17 +3,27 @@
 #include <string>
 #include "SimpleGraph.h"
 #include "GraphReader.h"
+#include "ForceDirectedLayouter.h"
+#include <boost/lexical_cast.hpp>
+
 using namespace std;
 
 void Welcome();
 string askForFileName();
+int askForRuntimeInSeconds();
 
 void recursiveMenu()
 {
     GraphReader graphReader;
-    SimpleGraph graph = graphReader.parseFile(askForFileName());
+    string fileName = askForFileName();
+    SimpleGraph graph = graphReader.parseFile(fileName);
     InitGraphVisualizer(graph);
     DrawGraph(graph);
+    int runtime = askForRuntimeInSeconds();
+    ForceDirectedLayouter forceDirectedLayouter(graph);
+    SimpleGraph layoutedGraph = forceDirectedLayouter.doLayoutProcedure(runtime);
+    InitGraphVisualizer(layoutedGraph);
+    DrawGraph(layoutedGraph);
     recursiveMenu();
 }
 
@@ -43,4 +53,13 @@ string askForFileName() {
     cin >> fileName;
     return fileName;
 }
+
+int askForRuntimeInSeconds(){
+    cout << "How many seconds shall the algorithm run?" << endl;
+    string runtime;
+    cin >> runtime;
+    int runtimeInSeconds=boost::lexical_cast<int>(runtime.c_str());
+    return runtimeInSeconds;
+}
+
 
