@@ -6,11 +6,11 @@
 
 using namespace std;
 class GraphReader {
-    public:
-        SimpleGraph parseFile(const string& fileName);
-    private:
-        std::vector<Node> createNodesOnCircle(int numberOfNodes);
-        Node createSingleNodeOnCircle(int numberOfNodes,int nodeIndex);
+public:
+    SimpleGraph parseFile(const string& fileName);
+private:
+    std::vector<Node> createNodesOnCircle(int numberOfNodes);
+    Node createSingleNodeOnCircle(int numberOfNodes,int nodeIndex);
 };
 
 #endif // GRAPHREADER_H

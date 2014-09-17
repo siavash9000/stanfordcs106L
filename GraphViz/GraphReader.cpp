@@ -11,32 +11,32 @@ using namespace boost;
 SimpleGraph GraphReader::parseFile(const string& fileName){
     ifstream fileStream(fileName);
     if(!fileStream.is_open())
-     cerr << "Couldn't open the file " << fileName << endl;
+        cerr << "Couldn't open the file " << fileName << endl;
     char str[255];
     int lines = 0;
     std::vector<Node> nodes;
     std::vector<Edge> edges;
     while(fileStream) {
-       int numberOfNodes;
-       fileStream.getline(str, 255);
-       if(lines==0){
-           numberOfNodes = atoi(str);
-           nodes = this->createNodesOnCircle(numberOfNodes);
-           cout << "Number of nodes:" << numberOfNodes << endl;
-       }
-       else {
-        if(fileStream){
-            vector <string> fields;
-            split( fields, str, is_any_of( " " ) );
-            size_t start = lexical_cast<size_t>(fields.at(0).c_str());
-            size_t end = lexical_cast<size_t>(fields.at(1).c_str());
-            Edge edge;
-            edge.start = start;
-            edge.end = end;
-            edges.push_back(edge);
+        int numberOfNodes;
+        fileStream.getline(str, 255);
+        if(lines==0){
+            numberOfNodes = atoi(str);
+            nodes = this->createNodesOnCircle(numberOfNodes);
+            cout << "Number of nodes:" << numberOfNodes << endl;
         }
-       }
-       lines++;
+        else {
+            if(fileStream){
+                vector <string> fields;
+                split( fields, str, is_any_of( " " ) );
+                size_t start = lexical_cast<size_t>(fields.at(0).c_str());
+                size_t end = lexical_cast<size_t>(fields.at(1).c_str());
+                Edge edge;
+                edge.start = start;
+                edge.end = end;
+                edges.push_back(edge);
+            }
+        }
+        lines++;
     }
     fileStream.close();
     SimpleGraph loadedGraph;

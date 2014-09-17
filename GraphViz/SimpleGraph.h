@@ -30,7 +30,7 @@
  * list of nodes.
  */
 struct Node {
-  double x, y;
+    double x, y;
 };
 
 /**
@@ -40,7 +40,7 @@ struct Node {
  * the indices in which they occur in the SimpleGraph's list of Nodes.
  */
 struct Edge {
-  std::size_t start, end;
+    std::size_t start, end;
 };
 
 /**
@@ -76,16 +76,16 @@ void InitGraphVisualizer(SimpleGraph& userGraph);
 
 /** Real SimpleGraph that uses Q_OBJECT Macro */
 class SimpleGraph : public QObject {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     SimpleGraph(){}
     SimpleGraph(const SimpleGraph& other):QObject(), nodes(other.nodes), edges(other.edges){}
     std::vector<Node> nodes;
     std::vector<Edge> edges;
     void drawGraph(SimpleGraph & graph);
 
-  signals:
+signals:
     void graphUpdated(SimpleGraph graph);
 };
 
