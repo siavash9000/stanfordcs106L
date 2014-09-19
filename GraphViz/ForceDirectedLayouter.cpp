@@ -9,6 +9,7 @@ SimpleGraph& ForceDirectedLayouter::doLayoutProcedure(int runtimeSeconds){
     time_t lastWaitingSignDrawing = time(NULL);
     do {
         doIteration();
+        DrawGraph(graph);
         elapsedTime = difftime(time(NULL), startTime);
         double timeSincelastWaitingSignDrawing = difftime(time(NULL), lastWaitingSignDrawing);
         if (timeSincelastWaitingSignDrawing>WAITING_SIGNAL_INTERVALL){

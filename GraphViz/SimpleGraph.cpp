@@ -57,7 +57,7 @@ void MyWidget::paintEvent(QPaintEvent *event) {
             painter.drawLine(start.x, start.y, end.x, end.y);
         }
         for (Node & n : copy.nodes) {
-            painter.drawEllipse(n.x - 5, n.y - 5, 10, 10);
+            painter.drawEllipse(n.x - 2, n.y - 2, 4, 4);
         }
     }
     //last_run = QTime::currentTime();

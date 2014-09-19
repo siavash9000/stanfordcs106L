@@ -22,8 +22,6 @@ void recursiveMenu()
     int runtime = askForRuntimeInSeconds();
     ForceDirectedLayouter forceDirectedLayouter(graph);
     SimpleGraph layoutedGraph = forceDirectedLayouter.doLayoutProcedure(runtime);
-    InitGraphVisualizer(layoutedGraph);
-    DrawGraph(layoutedGraph);
     recursiveMenu();
 }
 
