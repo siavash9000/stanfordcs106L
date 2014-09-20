@@ -33,7 +33,7 @@ void ForceDirectedLayouter::applyRepulsiveNodeForces(){
             Node& one = graph.nodes.at(j);
             double diffX = one.x - zero.x;
             double diffY = one.y - zero.y;
-            double repulsiveForce = REPULSION_CONSTANT / std::sqrt(diffY*diffY+diffX*diffX);
+            double repulsiveForce = REPULSION_CONSTANT / sqrt(diffY*diffY+diffX*diffX);
             double theta = atan2(diffY, diffX);
             zero.x -= repulsiveForce*cos(theta);
             zero.y -= repulsiveForce*sin(theta);

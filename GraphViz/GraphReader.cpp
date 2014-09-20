@@ -9,7 +9,7 @@
 using namespace std;
 using namespace boost;
 SimpleGraph GraphReader::parseFile(const string& fileName){
-    ifstream fileStream(fileName);
+    ifstream fileStream(fileName.c_str());
     if(!fileStream.is_open())
         cerr << "Couldn't open the file " << fileName << endl;
     char str[255];

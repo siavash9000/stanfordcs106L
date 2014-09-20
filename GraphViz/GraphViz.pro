@@ -4,17 +4,22 @@ QT += widgets
 TEMPLATE = app
 CONFIG += no_include_pwd
 CONFIG -= app_bundle
-
-HEADERS += *.h
-SOURCES += *.cpp
-
-QMAKE_CXXFLAGS += -std=c++11
+macx{
+INCLUDEPATH += /usr/local/Cellar/boost/1.55.0_2/include
+LIBS += -L/usr/local/Cellar/boost/1.55.0_2/lib
+LIBS += -lboost_system-mt -lboost_filesystem-mt
+}
+unix{
 LIBS += -L/usr/lib/x86_64-linux-gnu -lboost_system  -lboost_filesystem
-
+}
 install_it.path = %{buildDir}/resources/
 install_it.files += %{sourceDir}/resources/*
 
 INSTALLS += install_it
+HEADERS += *.h
+SOURCES += *.cpp
+
+QMAKE_CXXFLAGS += -std=c++11
 
 # Copies the given files to the destination directory
 defineTest(copyToDestdir) {
