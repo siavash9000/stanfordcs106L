@@ -38,7 +38,7 @@ void ForceDirectedLayouter::applyRepulsiveNodeForces(){
             zero.x -= repulsiveForce*cos(theta);
             zero.y -= repulsiveForce*sin(theta);
             one.x += repulsiveForce*cos(theta);
-            one.y += repulsiveForce*cos(theta);
+            one.y += repulsiveForce*sin(theta);
         }
     }
 }
@@ -55,6 +55,6 @@ void ForceDirectedLayouter::applyAttractiveEdgeForces(){
         zero.x += repulsiveForce*cos(theta);
         zero.y += repulsiveForce*sin(theta);
         one.x -= repulsiveForce*cos(theta);
-        one.y -= repulsiveForce*cos(theta);
+        one.y -= repulsiveForce*sin(theta);
     }
 }
