@@ -3,10 +3,6 @@
 
 #include "SimpleGraph.h"
 
-#define WAITING_SIGNAL_INTERVALL 0.5
-#define REPULSION_CONSTANT 0.001
-#define ATTRACTION_CONSTANT 0.001
-
 using namespace std;
 class ForceDirectedLayouter {
 public:
@@ -17,6 +13,9 @@ private:
     void doIteration();
     void applyRepulsiveNodeForces();
     void applyAttractiveEdgeForces();
+    void applyPerturbation(float raangeStart,float rangeEnd);
+    float repulsionForceConstant = 0.001;
+    float attractionForceConstant = 0.001;
 };
 
 #endif // LAYOUTPROCEDURE_H
